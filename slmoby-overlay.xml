@@ -1,0 +1,11 @@
+<repositories encoding="unicode" version="1.1">
+  <repo priority="50" quality="experimental">
+    <name>slmoby-overlay</name>
+    <description>Slmoby Overlay</description>
+    <owner>
+      <email>lotusdocker@gmail.com</email>
+      <name>slmoby</name>
+    </owner>
+    <source type="git">https://github.com/slmoby/slmoby-overlay.git</source>
+  </repo>
+</repositories>

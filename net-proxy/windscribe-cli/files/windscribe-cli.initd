@@ -1,0 +1,28 @@
+#!/sbin/openrc-run
+# Copyright 2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="windscribe-cli daemon"
+description="Windscibe daemon"
+command=/usr/bin/windscribe
+command_args="${windscribe-cli_args}"
+depend() {
+        need net 
+}
+PID=/run/windscribe.pid
+LOG=/var/log/windscribe/windscribe.log
+
+start() {
+   ebegin "Starting Windscibe..."
+   start-stop-daemon --start \
+   -b -1 ${LOG} -2 ${LOG} \
+   -m -p ${PID} \
+   --exec $command start 
+   eend $?
+}
+
+stop () {
+    ebegin "Stopping Windscribe.."
+    start-stop-daemon --stop -p ${PID}
+    eend $?
+}
